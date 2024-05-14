@@ -6,7 +6,7 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
 
     const version = '0.9.0';
     const lastUpdate = 1715536019;
-    const schemaVersion = 0.2;
+    const schemaVersion = 0.1;
 	const flickerURL = 'https://s3.amazonaws.com/files.d20.io/images/4277467/iQYjFOsYC5JsuOPUCI9RGA/thumb.png?1401938659';
 	const flickerPeriod = 400;
 	const flickerDeltaLocation = 2;
@@ -169,8 +169,8 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
 			parent: o.id,
 			active: true,
 			page: o.get('pageid'),
-            bright_light_distance: r,
-            low_light_distance: d,
+            light_radius: r,
+            light_dimradius: d,
             light_angle: a
 		};
 	};
@@ -407,12 +407,12 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
 					} else {
 						dx = randomInteger(2 * flickerDeltaLocation)-flickerDeltaLocation;
 						dy = randomInteger(2 * flickerDeltaLocation)-flickerDeltaLocation;
-						dr = randomInteger(2 * (fdata.bright_light_distance*flickerDeltaRadius)) - (fdata.bright_light_distance*flickerDeltaRadius);
+						dr = randomInteger(2 * (fdata.light_radius*flickerDeltaRadius)) - (fdata.light_radius*flickerDeltaRadius);
 						da = randomInteger(2 * flickerDeltaAngle)-flickerDeltaAngle;
 						f.set({
 							top: o.get('top')+dy,
 							left: o.get('left')+dx,
-                            bright_light_distance: fdata.bright_light_distance+dr,
+                            bright_light_distance: fdata.light_radius+dr,
 							light_angle: ((360 === fdata.light_angle) ? (360) : (Math.min(360,Math.max(fdata.light_angle+da,0)))) || 360,
                             rotation: o.get('rotation')
 						});
