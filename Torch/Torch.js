@@ -4,7 +4,7 @@
 
 const Torch = (() => { // eslint-disable-line no-unused-vars
 
-    const version = '0.8.14';
+    const version = '0.9.0';
     const lastUpdate = 1716138968;
     const schemaVersion = 0.1;
     const flickerURL = 'https://s3.amazonaws.com/files.d20.io/images/4277467/iQYjFOsYC5JsuOPUCI9RGA/thumb.png?1401938659';
@@ -139,8 +139,8 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
                     light_angle: a,
                     emits_bright_light: p,
                     emits_low_light: p,
-                    bright_light_distance: d,
-                    low_light_distance: r
+                    bright_light_distance: r,
+                    low_light_distance: d
                 });
             } else {
                 delete state.Torch.flickers[found.id];
@@ -165,8 +165,8 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
                 light_angle: a,
                 emits_bright_light: p,
                 emits_low_light: p,
-                bright_light_distance: d,
-                low_light_distance: r
+                bright_light_distance: r,
+                low_light_distance: d
 
             });
         }
@@ -181,8 +181,8 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
             light_angle: a,
             emits_bright_light: p,
             emits_low_light: p,
-            bright_light_distance: d,
-            low_light_distance: r
+            bright_light_distance: r,
+            low_light_distance: d
         };
     };
 
@@ -211,7 +211,7 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
                     return;
                 }
                 radius = parseInt(args[1],10) || 40;
-                dim_radius = ( (undefined === args[2] || '-' === args[2]) ? (radius/2) : parseInt(args[2],10) );
+                dim_radius = ( (undefined === args[2] || '-' === args[2]) ? (radius * 1.5) : parseInt(args[2],10) );
                 other_players = _.contains([1,'1','on','yes','true','sure','yup','-'], args[3] || 1 );
 
                 objs = _.chain(args)
@@ -244,8 +244,8 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
                     Object.assign(props,{
                         emits_bright_light: true,
                         emits_low_light: true,
-                        bright_light_distance: dim_radius,
-                        low_light_distance: radius
+                        low_light_distance: dim_radius,
+                        bright_light_distance: radius
                     });
                 } else {
                     Object.assign(props,{
@@ -357,7 +357,7 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
                     return;
                 }
                 radius = parseInt(args[1],10) || 40;
-                dim_radius = ( (undefined === args[2] || '-' === args[2]) ? (radius/2) : parseInt(args[2],10) );
+                dim_radius = ( (undefined === args[2] || '-' === args[2]) ? (radius * 1.5) : parseInt(args[2],10) );
                 other_players = _.contains([1,'1','on','yes','true','sure','yup','-'], args[3] || 1 );
 
                 objs=_.chain(args)
