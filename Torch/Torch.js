@@ -464,7 +464,7 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
             .each(function(fdata){
                 let o = getObj('graphic',fdata.parent),
                     f = getObj('graphic',fdata.id),
-                    dx, dy, dr, da;
+                    dx, dy, dr, da, fa;
 
                 if(!o) {
                     clearFlicker(fdata.id);
@@ -476,11 +476,13 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
                         dy = randomInteger(Math.max(2 * flickerDeltaLocation,0))-flickerDeltaLocation;
                         dr = randomInteger(Math.max(2 * (fdata.light_radius*flickerDeltaRadius),2)) - (fdata.light_radius*flickerDeltaRadius);
                         da = randomInteger(Math.max(2 * flickerDeltaAngle,0))-flickerDeltaAngle;
+                        fa = ((360 === fdata.light_angle) ? (360) : (Math.min(360,Math.max(fdata.light_angle+da,0)))) || 360
                         f.set({
                             top: o.get('top')+dy,
                             left: o.get('left')+dx,
                             light_radius: fdata.light_radius+dr,
-                            light_angle: ((360 === fdata.light_angle) ? (360) : (Math.min(360,Math.max(fdata.light_angle+da,0)))) || 360,
+                            light_angle: fa,
+                            directional_dim_light_total: fa,
                             rotation: o.get('rotation')
                         });
                     }
