@@ -26,6 +26,10 @@
     "graphic.emits_low_light": "read,write",
     "graphic.bright_light_distance": "read,write",
     "graphic.low_light_distance": "read,write",
+    "graphic.has_directional_bright_light": "read,write",
+    "graphic.directional_bright_light_total": "read,write",
+    "graphic.has_directional_dim_light": "read,write",
+    "graphic.directional_dim_light_total": "read,write",
     "graphic.top": "read,write",
     "page.name": "read",
     "page.showlighting": "read,write"
