@@ -49,16 +49,17 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
             '</div>'+
             '<b>Commands</b>'+
             '<div style="padding-left:10px;">'+
-            '<b><span style="font-family: serif;">!torch '+ch('[')+ch('<')+'Radius'+ch('>')+' '+ch('[')+ch('<')+'Dim Start'+ch('>')+' '+ch('[')+ch('<')+'All Players'+ch('>')+'  '+ch('[')+ch('<')+'Token ID'+ch('>')+ch('|')+ch('<')+'--Angle'+ch('>')+' ... '+ch(']')+ch(']')+ch(']')+ch(']')+'</span></b>'+
+            '<b><span style="font-family: serif;">!torch '+ch('[')+ch('<')+'Radius'+ch('>')+' '+ch('[')+ch('<')+'Dim Radius'+ch('>')+' '+ch('[')+ch('<')+'All Players'+ch('>')+'  '+ch('[')+ch('<')+'Token ID'+ch('>')+ch('|')+ch('<')+'--Angle'+ch('>')+' ... '+ch(']')+ch(']')+ch(']')+ch(']')+'</span></b>'+
             '<div style="padding-left: 10px;padding-right:20px">'+
             '<p>Sets the light for the selected/supplied tokens.  Only GMs can supply token ids to adjust.</p>'+
             '<p><b>Note:</b> If you are using multiple '+ch('@')+ch('{')+'target'+ch('|')+'token_id'+ch('}')+' calls in a macro, and need to adjust light on fewer than the supplied number of arguments, simply select the same token several times.  The duplicates will be removed.</p>'+
+            '<p><b>Note:</b> If you are using this command on page with legacy light - you should supply command with both radius and dim radius arguments.</p>'+
             '<ul>'+
             '<li style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;">'+
             '<b><span style="font-family: serif;">'+ch('<')+'Radius'+ch('>')+'</span></b> '+ch('-')+' The radius that the light extends to. (Default: 40)'+
             '</li> '+
             '<li style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;">'+
-            '<b><span style="font-family: serif;">'+ch('<')+'Dim Start'+ch('>')+'</span></b> '+ch('-')+' The radius at which the light begins to dim. (Default: Half of Radius )'+
+            '<b><span style="font-family: serif;">'+ch('<')+'Dim Radius'+ch('>')+'</span></b> '+ch('-')+' The radius at which the light begins to dim. (Default: Half of Radius )'+
             '</li> '+
             '<li style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;">'+
             '<b><span style="font-family: serif;">'+ch('<')+'All Players'+ch('>')+'</span></b> '+ch('-')+' Should all players see the light, or only the controlling players (Darkvision, etc). Specify one of <i>1, on, yes, true, sure, yup, or -</i> for yes, anything else for no.  (Default: yes)'+
@@ -81,9 +82,10 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
             '</li> '+
             '</ul>'+
             '</div>'+
-            '<b><span style="font-family: serif;">!flicker-on '+ch('[')+ch('<')+'Radius'+ch('>')+' '+ch('[')+ch('<')+'Dim Start'+ch('>')+' '+ch('[')+ch('<')+'All Players'+ch('>')+'  '+ch('[')+ch('<')+'Token ID'+ch('>')+ch('|')+ch('<')+'--Angle'+ch('>')+' ... '+ch(']')+ch(']')+ch(']')+ch(']')+'</span></b>'+
+            '<b><span style="font-family: serif;">!flicker-on '+ch('[')+ch('<')+'Radius'+ch('>')+' '+ch('[')+ch('<')+'Dim Radius'+ch('>')+' '+ch('[')+ch('<')+'All Players'+ch('>')+'  '+ch('[')+ch('<')+'Token ID'+ch('>')+ch('|')+ch('<')+'--Angle'+ch('>')+' ... '+ch(']')+ch(']')+ch(']')+ch(']')+'</span></b>'+
             '<div style="padding-left: 10px;padding-right:20px">'+
             '<p>Behaves identically to !torch, save that it creates a flickering light.</p>'+
+            '<p><b>Note:</b> If you are using this command on page with legacy light - you should supply command with both radius and dim radius arguments.</p>'+
             '</div>'+
             '<b><span style="font-family: serif;">!flicker-off '+ch('[')+ch('<')+'Token ID'+ch('>')+' ... '+ch(']')+'</span></b>'+
             '<div style="padding-left: 10px;padding-right:20px">'+
@@ -96,11 +98,6 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
             '<b><span style="font-family: serif;">!nighttime'+'</span></b>'+
             '<div style="padding-left: 10px;padding-right:20px">'+
             '<p>Turns on dynamic lighting for the current player page.</p>'+
-            '<ul>'+
-            '<li style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;">'+
-            '<b><span style="font-family: serif;">'+ch('<')+'Token ID'+ch('>')+'</span></b> '+ch('-')+' A Token ID, usually supplied with something like '+ch('@')+ch('{')+'target'+ch('|')+'Target 1'+ch('|')+'token_id'+ch('}')+'.'+
-            '</li> '+
-            '</ul>'+
             '</div>'+
             '<b><span style="font-family: serif;">!global-light'+'</span></b>'+
             '<div style="padding-left: 10px;padding-right:20px">'+
