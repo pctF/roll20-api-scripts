@@ -322,11 +322,12 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
                     return;
                 }
                 if(playerIsGM(msg.playerid)) {
-                    page = getObj('page', whoChar.get('lastpage'));
+                    page = getCurrentPage(whoChar)
 
                     if(page) {
                         page.set({
-                            showlighting: false
+                            showlighting: false,
+                            dynamic_lighting_enabled: false
                         });
                         sendChat('','/w gm It is now <b>Daytime</b> on '+page.get('name')+'!');
                     }
@@ -339,11 +340,12 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
                     return;
                 }
                 if(playerIsGM(msg.playerid)) {
-                    page = getObj('page', whoChar.get('lastpage'));
+                    page = getCurrentPage(whoChar)
 
                     if(page) {
                         page.set({
-                            showlighting: true
+                            showlighting: true,
+                            dynamic_lighting_enabled: true
                         });
                         sendChat('','/w gm It is now <b>Nighttime</b> on '+page.get('name')+'!');
                     }
@@ -356,11 +358,13 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
                     return;
                 }
                 if(playerIsGM(msg.playerid)) {
-                    page = getObj('page', whoChar.get('lastpage'));
+                    page = getCurrentPage(whoChar)
 
                     if(page) {
                         page.set({
-                            lightglobalillum: !(page.get('lightglobalillum'))
+                            lightglobalillum: !(page.get('lightglobalillum')),
+                            dynamic_lighting_enabled: true,
+                            daylight_mode_enabled: !(page.get('daylight_mode_enabled'))
                         });
                         sendChat('','/w gm Global Illumination is now '+(page.get('lightglobalillum')?'<span style="font-weight:bold;color:#090;">ON</span>':'<span style="font-weight:bold;color:#900;">OFF</span>' )+' on page <b>'+page.get('name')+'</b>!');
                     }
@@ -436,6 +440,11 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
             .map((p)=>p.get('lastpage'))
     ])
     ];
+
+    const getCurrentPage = (whoChar) => {
+        var page = getObj('page', whoChar.get('lastpage'))
+        return !page ? getObj("page", Campaign().get("playerpageid")) : page
+    }
 
     const forceLightUpdateOnPage = (()=>{
         const forPage = (pid) => (getObj('page',pid)||{set:()=>{}}).set('force_lighting_refresh',true);

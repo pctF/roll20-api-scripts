@@ -32,7 +32,9 @@
     "graphic.directional_dim_light_total": "read,write",
     "graphic.top": "read,write",
     "page.name": "read",
-    "page.showlighting": "read,write"
+    "page.showlighting": "read,write",
+    "page.dynamic_lighting_enabled": "read,write",
+    "page.daylight_mode_enabled": "read,write"
   },
   "conflicts": [],
   "script": "Torch.js",
