@@ -89,32 +89,22 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
             '<div style="padding-left: 10px;padding-right:20px">'+
             '<p>Behaves identically to !snuff, save that it affects the flickering light.</p>'+
             '</div>'+
-            '<b><span style="font-family: serif;">!daytime '+ch('[')+ch('<')+'Token ID'+ch('>')+ch(']')+'</span></b>'+
+            '<b><span style="font-family: serif;">!daytime'+'</span></b>'+
             '<div style="padding-left: 10px;padding-right:20px">'+
-            '<p>Turns off dynamic lighting for the current player page, or the page of the selected/supplied token.</p>'+
+            '<p>Turns off dynamic lighting for the current player page.</p>'+
+            '</div>'+
+            '<b><span style="font-family: serif;">!nighttime'+'</span></b>'+
+            '<div style="padding-left: 10px;padding-right:20px">'+
+            '<p>Turns on dynamic lighting for the current player page.</p>'+
             '<ul>'+
             '<li style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;">'+
             '<b><span style="font-family: serif;">'+ch('<')+'Token ID'+ch('>')+'</span></b> '+ch('-')+' A Token ID, usually supplied with something like '+ch('@')+ch('{')+'target'+ch('|')+'Target 1'+ch('|')+'token_id'+ch('}')+'.'+
             '</li> '+
             '</ul>'+
             '</div>'+
-            '<b><span style="font-family: serif;">!nighttime '+ch('[')+ch('<')+'Token ID'+ch('>')+ch(']')+'</span></b>'+
+            '<b><span style="font-family: serif;">!global-light'+'</span></b>'+
             '<div style="padding-left: 10px;padding-right:20px">'+
-            '<p>Turns on dynamic lighting for the current player page, or the page of the selected/supplied token.</p>'+
-            '<ul>'+
-            '<li style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;">'+
-            '<b><span style="font-family: serif;">'+ch('<')+'Token ID'+ch('>')+'</span></b> '+ch('-')+' A Token ID, usually supplied with something like '+ch('@')+ch('{')+'target'+ch('|')+'Target 1'+ch('|')+'token_id'+ch('}')+'.'+
-            '</li> '+
-            '</ul>'+
-            '</div>'+
-            '<b><span style="font-family: serif;">!global-light '+ch('[')+ch('<')+'Token ID'+ch('>')+ch(']')+'</span></b>'+
-            '<div style="padding-left: 10px;padding-right:20px">'+
-            '<p>Toggles Global Illumination for the current player page, or the page of the selected/supplied token.</p>'+
-            '<ul>'+
-            '<li style="border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;">'+
-            '<b><span style="font-family: serif;">'+ch('<')+'Token ID'+ch('>')+'</span></b> '+ch('-')+' A Token ID, usually supplied with something like '+ch('@')+ch('{')+'target'+ch('|')+'Target 1'+ch('|')+'token_id'+ch('}')+'.'+
-            '</li> '+
-            '</ul>'+
+            '<p>Toggles Global Illumination for the current player page.</p>'+
             '</div>'+
             '</div>'+
             '</div>'
