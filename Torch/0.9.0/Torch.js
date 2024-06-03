@@ -71,6 +71,13 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
             '<b><span style="font-family: serif;">'+ch('<')+'--Angle'+ch('>')+'</span></b> '+ch('-')+' The angle of the light arc of the light. (Default: 360)'+
             '</li> '+
             '</ul>'+
+            '<p>Command examples:'+
+            '<ul>' +
+            '<li>`<span style="font-family: serif;">!torch 20 40</span>`: Create Torch from selected token with will emit Bright light for 15 and Low light for 30;</li>' +
+            '<li>`<span style="font-family: serif;">!torch 60 120 true --40</span>`: Create Torch from selected token with will emit Bright light for 60 and Low light for 120 with angle of 40 degrees;</li>' +
+            '<li>`<span style="font-family: serif;">!torch 30 60 true ' + ch('{') + ch('@') + 'target' + ch('|') + 'torch' + ch('|') + 'token_id' + ch('}') + ' --45</span>`: Create Torch from targeted token with will emit Bright light for 30 and Low light for 60 with angle of 45 degrees.</li>' +
+            '</ul>' +
+            '</p>' +
             '</div>'+
             '<b><span style="font-family: serif;">!snuff '+ch('[')+ch('<')+'Token ID'+ch('>')+' ... '+ch(']')+'</span></b>'+
             '<div style="padding-left: 10px;padding-right:20px">'+
@@ -86,6 +93,12 @@ const Torch = (() => { // eslint-disable-line no-unused-vars
             '<div style="padding-left: 10px;padding-right:20px">'+
             '<p>Behaves identically to !torch, save that it creates a flickering light.</p>'+
             '<p><b>Note:</b> If you are using this command on page with legacy light - you should supply command with both radius and dim radius arguments.</p>'+
+            '<p>Command examples:' +
+            '<ul>' +
+            '<li>`<span style="font-family: serif;">!flicker-on 30 60 true ' + ch('{') + ch('@') + 'target' + ch('|') + 'torch' + ch('|') + 'token_id' + ch('}') + ' --45</span>`: Will create flicker that\'s emit Bright light for 30, Low light for 60 with light angle 45 degrees;</li>' +
+            '<li>See !torch examples.</li>' +
+            '</ul>' +
+            '</p>' +
             '</div>'+
             '<b><span style="font-family: serif;">!flicker-off '+ch('[')+ch('<')+'Token ID'+ch('>')+' ... '+ch(']')+'</span></b>'+
             '<div style="padding-left: 10px;padding-right:20px">'+
